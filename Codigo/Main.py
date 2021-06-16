@@ -247,76 +247,77 @@ def tabGeometrica(x, y, z):
 
     return ret
 
+if __name__ == "__main__":
+    
+    x = []
+    y = []
+    escolha = 0
+    potencia, hiperbole = 0, 0
+    i = 0
+    restraingeometric = False
+    print("Quantos pontos você quer inserir para o ajuste")
+    c = int(input())
+    print("insira os valores de x\n")
+    for i in range(c):
+        x.append(float(input()))
+    print("insira os valores de y\n")
+    for i in range(c):
+        y.append(float(input()))
+    while True:
+        print("Qual aproximação você acha a mais adequada?")
+        for _ in range(len(x)):
+            if x[_] < 0:
+                restraingeometric = True
 
-x = []
-y = []
-escolha = 0
-potencia, hiperbole = 0, 0
-i = 0
-restraingeometric = False
-print("Quantos pontos você quer inserir para o ajuste")
-c = int(input())
-print("insira os valores de x\n")
-for i in range(c):
-    x.append(float(input()))
-print("insira os valores de y\n")
-for i in range(c):
-    y.append(float(input()))
-while True:
-    print("Qual aproximação você acha a mais adequada?")
-    for _ in range(len(x)):
-        if x[_] < 0:
-            restraingeometric = True
-
-    if restraingeometric:
-        print("[A] Hiperbólica\n[B] Potencia\n[C] Exponencial\n[D] comparativo")
-        z = input()
-        if z == 'a' or z == 'A':
-            TabHiperbolica(x, y, z)
-        elif z == 'b' or z == 'B':
-            TabPotencia(x, y, z)
-        elif z == 'c' or z == 'C':
-            tabExponencial(x, y, z)
-        elif z == 'd' or z == 'D':
-            variancia1, variancia2, i = 0, 0, 0
-            potencia = TabPotencia(x, y, z)
-            exponencial = tabExponencial(x, y, z)
-            hiperbole = TabHiperbolica(x, y, z)
-            plt.plot(x, y, label='Ideal')
-            plt.plot(x, hiperbole, label='Curva Hiperbole')
-            plt.plot(x, potencia, label='Curva Potencia')
-            plt.plot(x, exponencial, label='Curva Exponencial')
-            plt.legend()
-            time.sleep(15)
-            plt.show()
+        if restraingeometric:
+            print("[A] Hiperbólica\n[B] Potencia\n[C] Exponencial\n[D] comparativo")
+            z = input()
+            if z == 'a' or z == 'A':
+                TabHiperbolica(x, y, z)
+            elif z == 'b' or z == 'B':
+                TabPotencia(x, y, z)
+            elif z == 'c' or z == 'C':
+                tabExponencial(x, y, z)
+            elif z == 'd' or z == 'D':
+                variancia1, variancia2, i = 0, 0, 0
+                potencia = TabPotencia(x, y, z)
+                exponencial = tabExponencial(x, y, z)
+                hiperbole = TabHiperbolica(x, y, z)
+                plt.plot(x, y, label='Ideal')
+                plt.plot(x, hiperbole, label='Curva Hiperbole')
+                plt.plot(x, potencia, label='Curva Potencia')
+                plt.plot(x, exponencial, label='Curva Exponencial')
+                plt.legend()
+                time.sleep(15)
+                plt.show()
+            else:
+                break
         else:
-            break
-    else:
-        print("[A] Hiperbólica\n[B] Curva Exponencial\n[C] Exponencial\n[D] Geométrica\n[E] comparativo")
-        z = input()
-        if z == 'a' or z == 'A':
+            print("[A] Hiperbólica\n[B] Curva Exponencial\n[C] Exponencial\n[D] Geométrica\n[E] comparativo")
+            z = input()
+            if z == 'a' or z == 'A':
 
-            TabHiperbolica(x, y, z)
-        elif z == 'b' or z == 'B':
-            TabPotencia(x, y, z)
-        elif z == 'c' or z == 'C':
-            tabExponencial(x, y, z)
-        elif z == 'd' or z == 'D':
-            tabGeometrica(x, y, z)
-        elif z == 'e' or z == 'E':
-            geometria = tabGeometrica(x, y, z)
-            variancia1, variancia2, i = 0, 0, 0
-            potencia = TabPotencia(x, y, z)
-            exponencial = tabExponencial(x, y, z)
-            plt.plot(x, y, label='Ideal')
-            plt.plot(x, hiperbole, label='Curva Hiperbole')
-            plt.plot(x, potencia, label='Curva Potencia')
-            plt.plot(x, exponencial, label='Curva Exponencial')
-            plt.plot(x, geometria, label='Curva Geométrica')
-            plt.legend()
-            time.sleep(15)
-            plt.show()
-        else:
-            break
+                TabHiperbolica(x, y, z)
+            elif z == 'b' or z == 'B':
+                TabPotencia(x, y, z)
+            elif z == 'c' or z == 'C':
+                tabExponencial(x, y, z)
+            elif z == 'd' or z == 'D':
+                tabGeometrica(x, y, z)
+            elif z == 'e' or z == 'E':
+                geometria = tabGeometrica(x, y, z)
+                variancia1, variancia2, i = 0, 0, 0
+                potencia = TabPotencia(x, y, z)
+                exponencial = tabExponencial(x, y, z)
+                plt.plot(x, y, label='Ideal')
+                plt.plot(x, hiperbole, label='Curva Hiperbole')
+                plt.plot(x, potencia, label='Curva Potencia')
+                plt.plot(x, exponencial, label='Curva Exponencial')
+                plt.plot(x, geometria, label='Curva Geométrica')
+                plt.legend()
+                time.sleep(15)
+                plt.show()
+            else:
+                break
 
-        break
+            break
