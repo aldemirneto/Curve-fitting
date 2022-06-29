@@ -5,7 +5,7 @@ import helpers
 from functools import reduce
 
 
-def TabPotencia(x, y, z):
+def tpotencia(x, y, z):
     yp = [math.log(itens) for itens in y]
     xy = [iten1*iten2 for iten1, iten2 in zip(x, yp)]
     xquad = [itens**2 for itens in x]
@@ -24,7 +24,7 @@ def TabPotencia(x, y, z):
 
 
 
-def TabHiperbolica(x, y, z):
+def thiperbolica(x, y, z):
     yhip = [(1/itens) for itens in y]
     xy = [iten1*iten2 for iten1, iten2 in zip(x, yhip)]
     xquad = [itens**2 for itens in x]
@@ -42,7 +42,7 @@ def TabHiperbolica(x, y, z):
     return retorna
 
     
-def tabExponencial(x, y, z):
+def texponencial(x, y, z):
     yexp = [math.log(itens) for itens in y]
     xy = [iten1*iten2 for iten1,iten2 in zip(x, yexp)]
     xquad = [iten**2 for iten in x]
@@ -62,7 +62,7 @@ def tabExponencial(x, y, z):
     
     
 
-def tabGeometrica(x, y, z):
+def tgeometrica(x, y, z):
     xge = [math.log(iten) for iten in x]
     yge = [math.log(iten) for iten in y]
     xy = [iten1 * iten2 for iten1, iten2 in zip(xge, yge)]
@@ -104,19 +104,19 @@ if __name__ == "__main__":
         z = input()
         if z == 'a' or z == 'A':
 
-            TabHiperbolica(x, y, z)
+            thiperbolica(x, y, z)
         elif z == 'b' or z == 'B':
-            TabPotencia(x, y, z)
+            tpotencia(x, y, z)
         elif z == 'c' or z == 'C':
-            tabExponencial(x, y, z)
+            texponencial(x, y, z)
         elif z == 'd' or z == 'D':
-            tabGeometrica(x, y, z)
+            tgeometrica(x, y, z)
         elif z == 'e' or z == 'E':
-            geometria = tabGeometrica(x, y, z)
+            geometria = tgeometrica(x, y, z)
             variancia1, variancia2, i = 0, 0, 0
-            potencia = TabPotencia(x, y, z)
-            exponencial = tabExponencial(x, y, z)
-            hiperbole = TabHiperbolica(x, y, z)
+            potencia = tpotencia(x, y, z)
+            exponencial = texponencial(x, y, z)
+            hiperbole = thiperbolica(x, y, z)
             plt.plot(x, y, label='Ideal')
             plt.plot(x, hiperbole, label='Curva Hiperbole')
             plt.plot(x, potencia, label='Curva Potencia')
